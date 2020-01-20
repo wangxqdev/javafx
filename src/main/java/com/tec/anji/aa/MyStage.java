@@ -1,12 +1,8 @@
-package com.tec.anji;
+package com.tec.anji.aa;
 
 import javafx.application.Application;
 import javafx.scene.image.Image;
-import javafx.stage.Modality;
-import javafx.stage.Stage;
 import javafx.stage.StageStyle;
-import lombok.extern.java.Log;
-import lombok.extern.slf4j.Slf4j;
 
 /**
  * Stage
