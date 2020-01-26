@@ -7,7 +7,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 
 /**
- * Anchor布局只能管理直接子元素
+ * Anchor布局只能管理直接子元素，绝对布局
  */
 public class Main extends Application
 {
