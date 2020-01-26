@@ -1,4 +1,4 @@
-package com.tec.anji.aa;
+package com.tec.anji.stage;
 
 import javafx.application.Application;
 import javafx.scene.image.Image;
@@ -7,7 +7,7 @@ import javafx.stage.StageStyle;
 /**
  * Stage
  */
-public class MyStage extends Application
+public class Main extends Application
 {
     public static void main(String[] args)
     {

@@ -1,11 +1,14 @@
-package com.tec.anji.ab;
+package com.tec.anji.platform;
 
 import javafx.application.Application;
 import javafx.application.ConditionalFeature;
 import javafx.application.Platform;
 import javafx.stage.Stage;
 
-public class MyPlatform extends Application
+/**
+ * Platform
+ */
+public class Main extends Application
 {
     public static void main(String[] args)
     {

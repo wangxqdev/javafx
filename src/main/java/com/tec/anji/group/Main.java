@@ -1,7 +1,6 @@
-package com.tec.anji.ad;
+package com.tec.anji.group;
 
 import javafx.application.Application;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.scene.Cursor;
 import javafx.scene.Group;
@@ -11,7 +10,10 @@ import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-public class MyGroup extends Application
+/**
+ * Group
+ */
+public class Main extends Application
 {
     public static void main(String[] args)
     {
@@ -36,11 +38,11 @@ public class MyGroup extends Application
         }
         b1.setOnAction(e -> b2.setLayoutX(b2.getLayoutX() + 10));
 
-        Scene scene = new Scene(group, 500, 500);
+        Scene scene = new Scene(group);
         scene.setCursor(Cursor.cursor(getClass().getResource("/icon.png").toExternalForm()));
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("JavaFX");
+        primaryStage.setTitle("Group");
         primaryStage.getIcons().add(new Image("/icon.png"));
         primaryStage.show();
     }

@@ -1,4 +1,4 @@
-package com.tec.anji.ae;
+package com.tec.anji.button;
 
 import javafx.application.Application;
 import javafx.scene.Cursor;
@@ -11,7 +11,10 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
-public class MyButton extends Application
+/**
+ * Button
+ */
+public class Main extends Application
 {
     public static void main(String[] args)
     {
@@ -53,11 +56,11 @@ public class MyButton extends Application
         Group group = new Group();
         group.getChildren().add(button);
 
-        Scene scene = new Scene(group, 500, 500);
+        Scene scene = new Scene(group, 400, 400);
         scene.setCursor(Cursor.cursor(getClass().getResource("/icon.png").toExternalForm()));
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("JavaFX");
+        primaryStage.setTitle("Button");
         primaryStage.getIcons().add(new Image("/icon.png"));
         primaryStage.show();
     }

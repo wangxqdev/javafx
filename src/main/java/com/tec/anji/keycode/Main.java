@@ -1,4 +1,4 @@
-package com.tec.anji.af;
+package com.tec.anji.keycode;
 
 import javafx.application.Application;
 import javafx.scene.Cursor;
@@ -10,7 +10,10 @@ import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
 import javafx.stage.Stage;
 
-public class MyKeyCombination extends Application
+/**
+ * KeyCodeCombination
+ */
+public class Main extends Application
 {
     public static void main(String[] args)
     {
@@ -20,13 +23,13 @@ public class MyKeyCombination extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Scene scene = new Scene(new Group(), 500, 500);
+        Scene scene = new Scene(new Group());
 //        设置快捷方式
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.C, KeyCombination.SHORTCUT_DOWN), () -> System.out.println("run()"));
         scene.setCursor(Cursor.cursor(getClass().getResource("/icon.png").toExternalForm()));
 
         primaryStage.setScene(scene);
-        primaryStage.setTitle("JavaFX");
+        primaryStage.setTitle("Keycode");
         primaryStage.getIcons().add(new Image("/icon.png"));
         primaryStage.show();
     }
