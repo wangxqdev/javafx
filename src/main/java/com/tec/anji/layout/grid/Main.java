@@ -7,7 +7,7 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 
 /**
- * FlowPane
+ * GridPane
  */
 public class Main extends Application
 {
