@@ -1,4 +1,4 @@
-package com.tec.anji.textfield;
+package com.tec.anji.widget.textfield;
 
 import javafx.application.Application;
 import javafx.scene.Group;
@@ -7,11 +7,7 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.MouseButton;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.stage.Stage;
-
-import java.awt.Paint;
 
 public class Main extends Application
 {

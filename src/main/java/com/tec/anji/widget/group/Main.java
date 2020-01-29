@@ -1,4 +1,4 @@
-package com.tec.anji.group;
+package com.tec.anji.widget.group;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;

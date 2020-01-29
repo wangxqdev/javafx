@@ -1,4 +1,4 @@
-package com.tec.anji.keycode;
+package com.tec.anji.widget.keycode;
 
 import javafx.application.Application;
 import javafx.scene.Cursor;

@@ -1,4 +1,4 @@
-package com.tec.anji.stage;
+package com.tec.anji.widget.stage;
 
 import javafx.application.Application;
 import javafx.scene.image.Image;

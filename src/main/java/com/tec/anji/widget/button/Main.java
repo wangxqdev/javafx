@@ -1,4 +1,4 @@
-package com.tec.anji.button;
+package com.tec.anji.widget.button;
 
 import javafx.application.Application;
 import javafx.scene.Cursor;

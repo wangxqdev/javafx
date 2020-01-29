@@ -1,4 +1,4 @@
-package com.tec.anji.platform;
+package com.tec.anji.util.platform;
 
 import javafx.application.Application;
 import javafx.application.ConditionalFeature;

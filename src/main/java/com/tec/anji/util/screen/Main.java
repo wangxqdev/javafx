@@ -1,4 +1,4 @@
-package com.tec.anji.screen;
+package com.tec.anji.util.screen;
 
 import javafx.application.Application;
 import javafx.application.Platform;
