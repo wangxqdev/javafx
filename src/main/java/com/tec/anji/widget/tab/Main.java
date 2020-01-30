@@ -42,13 +42,16 @@ public class Main extends Application
 
         AnchorPane root = new AnchorPane(tabPane);
         root.widthProperty().addListener((observable, oldValue, newValue) -> AnchorPane.setLeftAnchor(tabPane,
-                newValue.doubleValue() / 2 - 100));
+                (newValue.doubleValue() - tabPane.getWidth()) / 2));
         root.heightProperty().addListener((observable, oldValue, newValue) -> AnchorPane.setTopAnchor(tabPane,
-                newValue.doubleValue() / 2 - 100));
+                (newValue.doubleValue() - tabPane.getHeight()) / 2));
 
         primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.setTitle("Tab");
         primaryStage.show();
+
+        AnchorPane.setTopAnchor(tabPane, (root.getHeight() - tabPane.getHeight()) / 2);
+        AnchorPane.setLeftAnchor(tabPane, (root.getWidth() - tabPane.getWidth()) / 2);
     }
 
     private ImageView initImage(String path)
