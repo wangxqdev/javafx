@@ -33,27 +33,20 @@ public class Main extends Application
         comboBox.setConverter(new StudentStringConverter());
 
         TextField textField = comboBox.getEditor();
-//        数据解绑
-        textField.setOnKeyPressed(e ->
-        {
-            comboBox.hide();
-            KeyCode keyCode = e.getCode();
-            if ((KeyCode.BACK_SPACE.equals(keyCode) || KeyCode.DELETE.equals(keyCode)) && null != comboBox.getValue())
-            {
-                comboBox.setValue(null);
-            }
-        });
+        textField.setOnKeyPressed(e -> comboBox.hide());
         textField.setOnKeyReleased(e ->
         {
             String input = textField.getText();
+            KeyCode keyCode = e.getCode();
+            if ((KeyCode.DELETE.equals(keyCode) || KeyCode.BACK_SPACE.equals(keyCode))
+                    && null != comboBox.getValue())
+            {
+                comboBox.setValue(null);
+                textField.setText(input);
+            }
             if (input.isEmpty())
             {
-                if (null != comboBox.getValue())
-                {
-                    comboBox.setValue(null);
-                    comboBox.setVisibleRowCount(0);
-                }
-                if (null == comboBox.getItems() || comboBox.getItems().size() != 5)
+                if (null == comboBox.getItems() || comboBox.getItems().size() < 5)
                 {
                     comboBox.setItems(students);
                     comboBox.setVisibleRowCount(students.size());
