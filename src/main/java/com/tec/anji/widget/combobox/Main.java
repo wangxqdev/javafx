@@ -7,6 +7,7 @@ import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
@@ -28,22 +29,35 @@ public class Main extends Application
             students.add(student);
         }
         comboBox.setEditable(true);
-        comboBox.setVisibleRowCount(5);
+        comboBox.setVisibleRowCount(students.size());
         comboBox.setConverter(new StudentStringConverter());
 
         TextField textField = comboBox.getEditor();
-        textField.setOnMouseClicked(e -> {
-            textField.clear();
-            comboBox.setItems(students);
-            comboBox.show();
+//        数据解绑
+        textField.setOnKeyPressed(e ->
+        {
+            comboBox.hide();
+            KeyCode keyCode = e.getCode();
+            if ((KeyCode.BACK_SPACE.equals(keyCode) || KeyCode.DELETE.equals(keyCode)) && null != comboBox.getValue())
+            {
+                comboBox.setValue(null);
+            }
         });
-
         textField.setOnKeyReleased(e ->
         {
-            String input = comboBox.getEditor().getText();
+            String input = textField.getText();
             if (input.isEmpty())
             {
-                comboBox.setItems(students);
+                if (null != comboBox.getValue())
+                {
+                    comboBox.setValue(null);
+                    comboBox.setVisibleRowCount(0);
+                }
+                if (null == comboBox.getItems() || comboBox.getItems().size() != 5)
+                {
+                    comboBox.setItems(students);
+                    comboBox.setVisibleRowCount(students.size());
+                }
             }
             else
             {
@@ -51,13 +65,14 @@ public class Main extends Application
                 if (!filteredStudents.isEmpty())
                 {
                     comboBox.setItems(filteredStudents);
+                    comboBox.setVisibleRowCount(filteredStudents.size());
                 }
                 else
                 {
                     comboBox.setItems(null);
+                    comboBox.setVisibleRowCount(0);
                 }
             }
-            comboBox.hide();
             comboBox.show();
         });
 
