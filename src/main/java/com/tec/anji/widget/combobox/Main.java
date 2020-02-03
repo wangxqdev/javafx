@@ -6,11 +6,15 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.SelectionModel;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
+
+import java.util.Arrays;
 
 /**
  * ComboBox
@@ -29,6 +33,7 @@ public class Main extends Application
             students.add(student);
         }
         comboBox.setEditable(true);
+        comboBox.setPlaceholder(new Label("无此学生"));
         comboBox.setVisibleRowCount(students.size());
         comboBox.setConverter(new StudentStringConverter());
 
@@ -36,20 +41,22 @@ public class Main extends Application
         textField.setOnKeyPressed(e -> comboBox.hide());
         textField.setOnKeyReleased(e ->
         {
-            String input = textField.getText();
             KeyCode keyCode = e.getCode();
-            if ((KeyCode.DELETE.equals(keyCode) || KeyCode.BACK_SPACE.equals(keyCode))
-                    && null != comboBox.getValue())
+            String input = textField.getText();
+            SelectionModel<Student> selectionModel = comboBox.getSelectionModel();
+            if ((KeyCode.DELETE.equals(keyCode) || KeyCode.BACK_SPACE.equals(keyCode)) && !selectionModel.isEmpty())
             {
-                comboBox.setValue(null);
-                textField.setText(input);
+                if (students.filtered(stu -> stu.getName().equals(input)).size() > 0)
+                {
+                    return;
+                }
+                selectionModel.clearSelection();
             }
             if (input.isEmpty())
             {
                 if (null == comboBox.getItems() || comboBox.getItems().size() < 5)
                 {
-                    comboBox.setItems(students);
-                    comboBox.setVisibleRowCount(students.size());
+                    refresh(comboBox, students);
                 }
             }
             else
@@ -57,14 +64,16 @@ public class Main extends Application
                 ObservableList<Student> filteredStudents = students.filtered(stu -> stu.getName().contains(input));
                 if (!filteredStudents.isEmpty())
                 {
-                    comboBox.setItems(filteredStudents);
-                    comboBox.setVisibleRowCount(filteredStudents.size());
+                    refresh(comboBox, filteredStudents);
                 }
                 else
                 {
-                    comboBox.setItems(null);
-                    comboBox.setVisibleRowCount(0);
+                    refresh(comboBox, null);
                 }
+            }
+            if (!textField.getText().equals(input))
+            {
+                textField.setText(input);
             }
             comboBox.show();
         });
@@ -76,6 +85,20 @@ public class Main extends Application
         primaryStage.setResizable(false);
         primaryStage.setTitle("ComboBox");
         primaryStage.show();
+    }
+
+    private void refresh(ComboBox<Student> comboBox, ObservableList<Student> nodes)
+    {
+        if (null == nodes)
+        {
+            comboBox.setItems(null);
+            comboBox.setVisibleRowCount(0);
+        }
+        else
+        {
+            comboBox.setItems(nodes);
+            comboBox.setVisibleRowCount(nodes.size());
+        }
     }
 
     private class Student
@@ -146,6 +169,7 @@ public class Main extends Application
         {
             if (student == null)
             {
+                System.out.println(Arrays.toString(Thread.currentThread().getStackTrace()));
                 return "";
             }
             return student.getName();
