@@ -1,8 +1,8 @@
 package com.tec.anji.widget.combobox;
 
+import com.tec.anji.model.Student;
+import com.tec.anji.util.converter.StudentStringConverter;
 import javafx.application.Application;
-import javafx.beans.property.SimpleIntegerProperty;
-import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.ObservableList;
 import javafx.scene.Scene;
 import javafx.scene.control.ComboBox;
@@ -12,9 +12,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
-import javafx.util.StringConverter;
-
-import java.util.Arrays;
 
 /**
  * ComboBox
@@ -98,87 +95,6 @@ public class Main extends Application
         {
             comboBox.setItems(nodes);
             comboBox.setVisibleRowCount(nodes.size());
-        }
-    }
-
-    private class Student
-    {
-        private SimpleStringProperty name = new SimpleStringProperty();
-
-        private SimpleIntegerProperty age = new SimpleIntegerProperty();
-
-        private SimpleIntegerProperty score = new SimpleIntegerProperty();
-
-        public Student(String name, int age, int score)
-        {
-            setName(name);
-            setAge(age);
-            setScore(score);
-        }
-
-        public String getName()
-        {
-            return name.get();
-        }
-
-        public SimpleStringProperty nameProperty()
-        {
-            return name;
-        }
-
-        public void setName(String name)
-        {
-            this.name.set(name);
-        }
-
-        public int getAge()
-        {
-            return age.get();
-        }
-
-        public SimpleIntegerProperty ageProperty()
-        {
-            return age;
-        }
-
-        public void setAge(int age)
-        {
-            this.age.set(age);
-        }
-
-        public int getScore()
-        {
-            return score.get();
-        }
-
-        public SimpleIntegerProperty scoreProperty()
-        {
-            return score;
-        }
-
-        public void setScore(int score)
-        {
-            this.score.set(score);
-        }
-    }
-
-    private class StudentStringConverter extends StringConverter<Student>
-    {
-        @Override
-        public String toString(Student student)
-        {
-            if (student == null)
-            {
-                System.out.println(Arrays.toString(Thread.currentThread().getStackTrace()));
-                return "";
-            }
-            return student.getName();
-        }
-
-        @Override
-        public Student fromString(String string)
-        {
-            return null;
         }
     }
 }
