@@ -1,4 +1,4 @@
-package com.tec.anji.layout.border;
+package com.tec.anji.layout.borderpane;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

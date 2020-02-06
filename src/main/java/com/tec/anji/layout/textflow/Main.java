@@ -1,4 +1,4 @@
-package com.tec.anji.layout.text;
+package com.tec.anji.layout.textflow;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

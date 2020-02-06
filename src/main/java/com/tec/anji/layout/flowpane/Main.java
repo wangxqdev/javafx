@@ -1,13 +1,14 @@
-package com.tec.anji.layout.grid;
+package com.tec.anji.layout.flowpane;
 
 import javafx.application.Application;
+import javafx.geometry.Insets;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.layout.GridPane;
+import javafx.scene.layout.FlowPane;
 import javafx.stage.Stage;
 
 /**
- * GridPane
+ * FlowPane
  */
 public class Main extends Application
 {
@@ -23,17 +24,12 @@ public class Main extends Application
         Button b2 = new Button("Button2");
         Button b3 = new Button("Button3");
         Button b4 = new Button("Button4");
-
-        GridPane root = new GridPane();
-        root.add(b1, 0, 0);
-        root.add(b2, 1, 0);
-        root.add(b3, 0, 1);
-        root.add(b4, 1, 1);
+        FlowPane root = new FlowPane(b1, b2, b3, b4);
         root.setStyle("-fx-background-color: gray; -fx-hgap: 10px; -fx-vgap: 10px; -fx-padding: 10px");
-        root.setGridLinesVisible(true);
-
+//        设置Margin
+        FlowPane.setMargin(b1, new Insets(0, 10, 0, 0));
         primaryStage.setScene(new Scene(root, 500, 500));
-        primaryStage.setTitle("GridPane");
+        primaryStage.setTitle("FlowPane");
         primaryStage.show();
     }
 }

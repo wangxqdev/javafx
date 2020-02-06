@@ -1,4 +1,4 @@
-package com.tec.anji.layout.grid;
+package com.tec.anji.layout.gridpane;
 
 import javafx.animation.FadeTransition;
 import javafx.application.Application;

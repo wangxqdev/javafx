@@ -1,4 +1,4 @@
-package com.tec.anji.layout.dialog;
+package com.tec.anji.layout.dialogpane;
 
 import javafx.application.Application;
 import javafx.concurrent.ScheduledService;

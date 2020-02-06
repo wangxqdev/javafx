@@ -12,7 +12,7 @@ public class StudentStringConverter extends StringConverter<Student>
         {
             return "";
         }
-        return student.getName();
+        return String.format("%s - %s - %s", student.getName(), student.getAge(), student.getScore());
     }
 
     @Override

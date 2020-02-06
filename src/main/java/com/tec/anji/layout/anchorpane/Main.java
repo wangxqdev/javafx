@@ -1,4 +1,4 @@
-package com.tec.anji.layout.anchor;
+package com.tec.anji.layout.anchorpane;
 
 import javafx.application.Application;
 import javafx.scene.Scene;

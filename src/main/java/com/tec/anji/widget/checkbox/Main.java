@@ -1,18 +1,16 @@
-package com.tec.anji.widget.rdobox;
+package com.tec.anji.widget.checkbox;
 
 import javafx.application.Application;
 import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.Toggle;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.CheckBox;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 /**
- * RadioButton
+ * CheckBox
  */
 public class Main extends Application
 {
@@ -21,26 +19,34 @@ public class Main extends Application
     {
         HBox hBox = new HBox(10);
         ObservableList<Node> children = hBox.getChildren();
-
-        ToggleGroup toggleGroup = new ToggleGroup();
-        ObservableList<Toggle> toggles = toggleGroup.getToggles();
         for (int i = 1; i <= 3; i++)
         {
-            RadioButton rdoBox = new RadioButton(String.format("RadioButton%s", i));
+            CheckBox checkBox = new CheckBox(String.format("CheckBox%s", i));
             if (i == 1)
             {
-                rdoBox.setSelected(true);
+                checkBox.setSelected(true);
             }
-            toggles.add(rdoBox);
-            children.add(rdoBox);
+            else if (i == 3)
+            {
+                checkBox.setAllowIndeterminate(true);
+            }
+            children.add(checkBox);
         }
-        toggleGroup.selectedToggleProperty().addListener((observable, oldValue, newValue) -> System.out.println(((RadioButton) newValue).getText()));
 
         AnchorPane root = new AnchorPane(hBox);
+        root.setOnMouseClicked(e ->
+        {
+            for (Node node : hBox.getChildren())
+            {
+                CheckBox chkBox = (CheckBox) node;
+                System.out.println(String.format("%s是否被选中 = %s, 是否是不确定状态 = %s", chkBox.getText(), chkBox.isSelected()
+                        , chkBox.isIndeterminate()));
+            }
+        });
 
         primaryStage.setScene(new Scene(root, 400, 300));
         primaryStage.setResizable(false);
-        primaryStage.setTitle("RadioButton");
+        primaryStage.setTitle("CheckBox");
         primaryStage.show();
 
         AnchorPane.setTopAnchor(hBox, (root.getHeight() - hBox.getHeight()) / 2);
