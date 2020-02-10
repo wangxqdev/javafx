@@ -24,8 +24,8 @@ public class Main extends Application
         TextField textField = new TextField();
         textField.setStyle("-fx-font-size: 14px");
         Button button = new Button("修改");
-        HBox hBox = new HBox(10, textField, button);
-        hBox.setStyle("-fx-alignment: center_left");
+        HBox hBox = new HBox(textField, button);
+        hBox.setStyle("-fx-alignment: center_left; -fx-spacing: 10px");
 
         ChoiceBox<Student> choiceBox = new ChoiceBox<>();
         choiceBox.setStyle("-fx-pref-width: 100px");
