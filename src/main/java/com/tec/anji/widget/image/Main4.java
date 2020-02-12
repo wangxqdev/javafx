@@ -23,7 +23,7 @@ public class Main4 extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Image image = new Image(getClass().getResource("/dog.jpg").toExternalForm());
+        Image image = new Image(getClass().getResource("/sample.jpg").toExternalForm());
         PixelReader pixelReader = image.getPixelReader();
         StringBuilder builder = new StringBuilder();
         for (int y = 0; y < image.getHeight(); y++)
@@ -53,6 +53,6 @@ public class Main4 extends Application
 
     private String getGraphics(float value)
     {
-        return graphics[Math.round(value * graphics.length)];
+        return graphics[(int) (value * (graphics.length - 1))];
     }
 }

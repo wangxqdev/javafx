@@ -11,6 +11,7 @@ import javafx.scene.input.Clipboard;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyCodeCombination;
 import javafx.scene.input.KeyCombination;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
@@ -26,26 +27,26 @@ public class Main extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Label label = new Label("图片黏贴处");
-        label.setStyle("-fx-padding: 100px; -fx-border-style: dashed; -fx-border-width: 5px; -fx-font-size: 20px");
+        ImageView imageView = new ImageView();
+        imageView.setPreserveRatio(true);
+        imageView.setFitWidth(260);
+        HBox hBox = new HBox(imageView);
+        hBox.setStyle("-fx-pref-width: 260px; -fx-pref-height: 378px; -fx-background-color: yellow; -fx-border-style: dashed; -fx-border-color: red; -fx-border-width: 5px");
 
-        HBox root = new HBox(label);
-        root.setStyle("-fx-alignment: center");
+        AnchorPane root = new AnchorPane(hBox);
+        AnchorPane.setTopAnchor(hBox, (500 - 378) / 2.0);
+        AnchorPane.setLeftAnchor(hBox, (400 - 260) / 2.0);
 
-        Scene scene = new Scene(root, 500, 400);
+        Scene scene = new Scene(root, 400, 500);
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.V, KeyCombination.SHORTCUT_DOWN), () ->
         {
             Clipboard clipboard = Clipboard.getSystemClipboard();
-            if (clipboard.getFiles().size() > 0)
+            if (clipboard.hasFiles())
             {
                 try (FileInputStream fis = new FileInputStream(clipboard.getFiles().get(0)))
                 {
-                    ImageView imageView = new ImageView(new Image(fis));
-                    imageView.setFitWidth(label.getWidth());
-                    imageView.setFitHeight(label.getHeight());
-                    ObservableList<Node> nodes = root.getChildren();
-                    nodes.clear();
-                    nodes.add(imageView);
+                    imageView.setImage(new Image(fis));
+                    hBox.setBorder(null);
                 }
                 catch (IOException e)
                 {

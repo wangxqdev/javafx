@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 
 /**
  * HBox and VBox
+ * IE盒模型
  */
 public class Main extends Application
 {
