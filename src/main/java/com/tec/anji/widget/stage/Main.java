@@ -28,7 +28,7 @@ public class Main extends Application
 //        设置标题
         primaryStage.setTitle("JavaFX");
 //        设置图标
-        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/icon.png")));
+        primaryStage.getIcons().add(new Image(getClass().getResourceAsStream("/img/icon.png")));
 //        设置最小化
 //        primaryStage.setIconified(true);
 //        设置最大化

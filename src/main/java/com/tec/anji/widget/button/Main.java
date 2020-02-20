@@ -57,11 +57,11 @@ public class Main extends Application
         group.getChildren().add(button);
 
         Scene scene = new Scene(group, 400, 400);
-        scene.setCursor(Cursor.cursor(getClass().getResource("/icon.png").toExternalForm()));
+        scene.setCursor(Cursor.cursor(getClass().getResource("/img/icon.png").toExternalForm()));
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Button");
-        primaryStage.getIcons().add(new Image("/icon.png"));
+        primaryStage.getIcons().add(new Image("/img/icon.png"));
         primaryStage.show();
     }
 }

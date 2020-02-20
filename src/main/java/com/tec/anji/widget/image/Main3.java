@@ -1,7 +1,5 @@
 package com.tec.anji.widget.image;
 
-import com.sun.javafx.iio.ImageMetadata;
-import com.sun.javafx.iio.ImageStorage;
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.scene.Scene;
@@ -29,13 +27,13 @@ public class Main3 extends Application
         int width = 600;
         int height;
 
-        Image imgLeft = new Image(getClass().getResource("/BLEACH1.jpg").toExternalForm(), width, 0, true, true);
+        Image imgLeft = new Image(getClass().getResource("/img/BLEACH1.jpg").toExternalForm(), width, 0, true, true);
         PixelReader pixelReader = imgLeft.getPixelReader();
         height = (int) imgLeft.getHeight();
         int[] buffer = new int[width * height / 2];
         pixelReader.getPixels(0, 0, width / 2, height, PixelFormat.getIntArgbPreInstance(), buffer, 0, width / 2);
 
-        Image imgRight = new Image(getClass().getResource("/BLEACH2.jpg").toExternalForm(), width, 0, true, true);
+        Image imgRight = new Image(getClass().getResource("/img/BLEACH2.jpg").toExternalForm(), width, 0, true, true);
         WritableImage writableImage = new WritableImage(imgRight.getPixelReader(), (int) imgRight.getWidth(),
                 (int) imgRight.getHeight());
         PixelWriter pixelWriter = writableImage.getPixelWriter();

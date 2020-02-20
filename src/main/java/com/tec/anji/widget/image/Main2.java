@@ -16,7 +16,7 @@ public class Main2 extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Image image = new Image(getClass().getResource("/rgba.png").toExternalForm());
+        Image image = new Image(getClass().getResource("/img/rgba.png").toExternalForm());
         PixelReader pixelReader = image.getPixelReader();
         int hexColor = pixelReader.getArgb(0, 0);
         System.out.println(String.format("red = %d, green = %d, blue = %d, alpha = %d",

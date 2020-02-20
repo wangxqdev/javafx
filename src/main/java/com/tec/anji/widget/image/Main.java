@@ -20,7 +20,7 @@ public class Main extends Application
     {
         ProgressIndicator progressIndicator = new ProgressIndicator(0);
 
-        Image image = new Image(getClass().getResource("/dog.jpg").toExternalForm(), 250, 0, true, true, false);
+        Image image = new Image(getClass().getResource("/img/dog.jpg").toExternalForm(), 250, 0, true, true, false);
 //        backgroundLoading = true时触发
         image.progressProperty().addListener((observable, oldValue, newValue) -> progressIndicator.setProgress(newValue.doubleValue()));
         ImageView imageView = new ImageView(image);

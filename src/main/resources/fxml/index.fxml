@@ -8,6 +8,6 @@
             xmlns:fx="http://javafx.com/fxml"
             fx:controller="com.tec.anji.fxml.MainController"
             prefHeight="400.0" prefWidth="600.0">
-    <Label fx:id="label" text="this is a label"/>
-    <Button fx:id="hello" prefWidth="100" prefHeight="100" AnchorPane.topAnchor="100" AnchorPane.leftAnchor="100" text="hello world" onAction="#action"/>
+    <Label fx:id="label" text="%label"/>
+    <Button fx:id="button" styleClass="btn" AnchorPane.topAnchor="100" AnchorPane.leftAnchor="100" text="%button" onAction="#doAction"/>
 </AnchorPane>

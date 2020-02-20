@@ -23,7 +23,7 @@ public class Main4 extends Application
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Image image = new Image(getClass().getResource("/sample.jpg").toExternalForm());
+        Image image = new Image(getClass().getResource("/img/sample.jpg").toExternalForm());
         PixelReader pixelReader = image.getPixelReader();
         StringBuilder builder = new StringBuilder();
         for (int y = 0; y < image.getHeight(); y++)

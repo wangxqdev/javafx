@@ -39,11 +39,11 @@ public class Main extends Application
         b1.setOnAction(e -> b2.setLayoutX(b2.getLayoutX() + 10));
 
         Scene scene = new Scene(group);
-        scene.setCursor(Cursor.cursor(getClass().getResource("/icon.png").toExternalForm()));
+        scene.setCursor(Cursor.cursor(getClass().getResource("/img/icon.png").toExternalForm()));
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Group");
-        primaryStage.getIcons().add(new Image("/icon.png"));
+        primaryStage.getIcons().add(new Image("/img/icon.png"));
         primaryStage.show();
     }
 }

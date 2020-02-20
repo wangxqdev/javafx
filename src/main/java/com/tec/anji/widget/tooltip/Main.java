@@ -19,7 +19,7 @@ public class Main extends Application
     public void start(Stage primaryStage) throws Exception
     {
         VBox vBox = new VBox();
-        vBox.setStyle("-fx-pref-width: 200px; -fx-pref-height: 200px; -fx-background-image: url('/icon.png'); -fx-background-size: 100% 100%");
+        vBox.setStyle("-fx-pref-width: 200px; -fx-pref-height: 200px; -fx-background-image: url('/img/icon.png'); -fx-background-size: 100% 100%");
 
         Tooltip tooltip = new Tooltip();
         tooltip.setGraphic(vBox);

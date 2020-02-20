@@ -26,11 +26,11 @@ public class Main extends Application
         Scene scene = new Scene(new Group());
 //        设置快捷方式
         scene.getAccelerators().put(new KeyCodeCombination(KeyCode.C, KeyCombination.SHORTCUT_DOWN), () -> System.out.println("run()"));
-        scene.setCursor(Cursor.cursor(getClass().getResource("/icon.png").toExternalForm()));
+        scene.setCursor(Cursor.cursor(getClass().getResource("/img/icon.png").toExternalForm()));
 
         primaryStage.setScene(scene);
         primaryStage.setTitle("Keycode");
-        primaryStage.getIcons().add(new Image("/icon.png"));
+        primaryStage.getIcons().add(new Image("/img/icon.png"));
         primaryStage.show();
     }
 }

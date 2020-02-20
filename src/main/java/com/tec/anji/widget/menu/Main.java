@@ -34,9 +34,9 @@ public class Main extends Application
 {
     private List<ImageView> icons = new ArrayList<ImageView>()
     {{
-        add(initImage("/skype.png"));
-        add(initImage("/ins.png"));
-        add(initImage("/wechat.png"));
+        add(initImage("/img/skype.png"));
+        add(initImage("/img/ins.png"));
+        add(initImage("/img/wechat.png"));
     }};
 
     @Override

@@ -1,0 +1,10 @@
+/* 类选择器 */
+.btn {
+    -fx-pref-width: 100px;
+    -fx-pref-height: 100px;
+}
+
+/* 标签选择器与W3C不同 */
+.label {
+    -fx-font-size: 16px;
+}

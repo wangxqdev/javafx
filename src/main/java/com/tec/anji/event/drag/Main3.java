@@ -1,6 +1,5 @@
 package com.tec.anji.event.drag;
 
-import com.tec.anji.model.Student;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -32,7 +31,7 @@ public class Main3 extends Application implements Serializable
     @Override
     public void start(Stage primaryStage) throws Exception
     {
-        Student student = new Student("小王", 31, getClass().getResource("/sample.jpg").toExternalForm());
+        Student student = new Student("小王", 31, getClass().getResource("/img/sample.jpg").toExternalForm());
 
         Label lbl_detail = new Label("学生详情");
         TextField txtf_name = new TextField();

@@ -17,9 +17,9 @@ public class Main extends Application
 {
     private List<ImageView> images = new ArrayList<ImageView>()
     {{
-        add(new ImageView("/skype.png"));
-        add(new ImageView("/ins.png"));
-        add(new ImageView("/wechat.png"));
+        add(new ImageView("/img/skype.png"));
+        add(new ImageView("/img/ins.png"));
+        add(new ImageView("/img/wechat.png"));
     }};
 
     @Override
